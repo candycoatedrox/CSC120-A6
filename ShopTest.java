@@ -3,10 +3,11 @@ import org.junit.Test;
 
 public class ShopTest {
 
-    // no need to organically find bugs via tests --
-    // make tests to catch the bugs you see in the code!!
-
     // COMPUTER TESTS
+
+    /**
+     * Create a Computer with its memory set to the given value
+     */
     @Test
     public void testConstructorMemory() {
         Computer testComputer = new Computer(
@@ -19,6 +20,9 @@ public class ShopTest {
         assertEquals(64, testComputer.memory);
     }
 
+    /**
+     * Create a Computer with its price set to the given value
+     */
     @Test
     public void testConstructorPrice() {
         Computer testComputer = new Computer(
@@ -31,6 +35,9 @@ public class ShopTest {
         assertEquals(1500, testComputer.price);
     }
 
+    /**
+     * Update a Computer's operatingSystem using setOS()
+     */
     @Test
     public void testSetOS() {
         Computer testComputer = new Computer(
@@ -45,6 +52,10 @@ public class ShopTest {
     }
 
     // RESALESHOP TESTS
+
+    /**
+     * Create a ResaleShop with a new, empty inventory
+     */
     @Test
     public void testShopConstructor() {
         ResaleShop testShop = new ResaleShop();
@@ -52,6 +63,9 @@ public class ShopTest {
         assertTrue(testShop.inventory.isEmpty());
     }
 
+    /**
+     * Add a Computer to the inventory using buy()
+     */
     @Test
     public void testBuy() {
         ResaleShop testShop = new ResaleShop();
@@ -74,6 +88,10 @@ public class ShopTest {
     // This is definitely related to my general JUnit issues, but I can't figure out
     // how to fix it (see reflection.md)
     // I'm using a workaround in the next few tests instead
+
+    /**
+     * Throw an Exception when trying to buy() a Computer already in the inventory
+     */
     @Test
     public void testBuyException() {
         ResaleShop testShop = new ResaleShop();
@@ -97,6 +115,9 @@ public class ShopTest {
         assertTrue(exceptionThrown);
     }
 
+    /**
+     * Throw an Exception when trying to sell() a Computer that isn't in the inventory
+     */
     @Test
     public void testSellException() {
         ResaleShop testShop = new ResaleShop();
@@ -119,6 +140,9 @@ public class ShopTest {
         assertTrue(exceptionThrown);
     }
 
+    /**
+     * Loop through the inventory in printInventory() without throwing an Exception
+     */
     @Test
     public void testPrintInventoryLoop() {
         ResaleShop testShop = new ResaleShop();
@@ -135,6 +159,9 @@ public class ShopTest {
         assertFalse(exceptionThrown);
     }
 
+    /**
+     * Update the price of a Computer from 2000-2011 in line with other refurbished prices using refurbish()
+     */
     @Test
     public void testRefurbishPrice() {
         ResaleShop testShop = new ResaleShop();
@@ -156,6 +183,9 @@ public class ShopTest {
         assertEquals(250, testComputer.price);
     }
 
+    /**
+     * refurbish() checks if a new String "None" .equals() an existing String "None", and does not update operatingSystem
+     */
     @Test
     public void testRefurbishOS() {
         ResaleShop testShop = new ResaleShop();
@@ -177,12 +207,6 @@ public class ShopTest {
         }
 
         assertEquals("macOS Big Sur", testComputer.operatingSystem);
-    }
-
-    public static void main(String[] args) {
-        System.out.println("Running");
-        ShopTest runTests = new ShopTest();
-        runTests.testRefurbishOS();
     }
     
 }
