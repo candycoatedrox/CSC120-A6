@@ -1,4 +1,13 @@
-Use this file to record your reflection on this assignment.
+I can definitely see how unit testing is incredibly useful -- it allows you to find the *exact* point at which your program fails, and lets you test edge cases seamlessly. Also, it lets you run tests in bulk, instead of having to write some super long and convoluted main() method.
 
-What are your initial impressions of how `Unit Testing` affects your programming?
-What worked, what didn't, what advice would you give someone taking this course in the future?
+Writing unit tests is also a super fun challenge to me. The reason I love programming in the first place is that I see it as a puzzle, and unit testing adds another layer to that puzzle: how do I break down this program into the smallest possible functions to test? How do I write a test that *only* fails if *that specific function* isn't working properly? Honestly, I also love the simplified, repetitive nature of writing unit tests -- I honestly really enjoy simple repetitive tasks that are intuitive, but still take a little effort. I'm able to focus in on these tasks and relax while doing them, especially in programming. (Last year, I was working with a group of other people on creating a website documenting the script of one of my favorite games, and I spent maybe two weeks straight spending every second of my free time reformatting older pages on the website and writing new ones. The other people working on the project were flabbergasted when I mentioned I was typing out the dialogue lines by hand, instead of copy-pasting them from the game's code. I just thought it was more relaxing that way. This is definitely a pattern, heh.)
+
+JUnit itself has been having some issues on my end. I know Hia has been experiencing the same issue, where VSCode says it doesn't recognize JUnit and shows errors whenever I use any of its methods, but shows mouseover hints and runs tests just fine. I attended TA Hours on Tuesday to try and fix this problem, but we couldn't find a solution even after an hour and a half of trying!
+
+The only *practical* issue this caused in this assignment is that if I try to create a test that expects an Exception via (expected = ...), VSCode insists that the Exception from the method in the test is unhandled, fails to build the project, and can't show a result for the test. I ended up using a workaround:
+    1. create a boolean that is initially false
+    2. use a try/catch block
+    3. set that boolean to true if it catches the expected Exception
+    4. assert that the boolean is true
+
+Aside from my issues with JUnit itself, though, the assignment went pretty smoothly for me. :)
